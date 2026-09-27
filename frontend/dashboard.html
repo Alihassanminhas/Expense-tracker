@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#064e3b">
+  <meta name="description" content="Review your spending and record an expense.">
+  <title>Dashboard | Expense Tracker</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/theme.css">
+  <script src="js/theme.js"></script>
+</head>
+<body class="min-h-screen bg-gray-50 text-gray-900">
+  <aside id="dashboardNavigation" class="sticky top-0 z-30 flex flex-wrap items-center gap-x-4 gap-y-3 bg-emerald-950 px-4 py-3 text-white transition-[transform,opacity] delay-75 duration-300 ease-in-out motion-reduce:transition-none md:fixed md:inset-y-0 md:left-0 md:w-64 md:translate-y-0 md:flex-nowrap md:flex-col md:items-stretch md:px-5 md:py-6">
+    <a href="dashboard.html" class="order-1 flex items-center gap-3 rounded-md px-1 text-sm font-semibold tracking-tight focus:outline-none focus:ring-2 focus:ring-emerald-300 md:px-2 md:text-base">
+      <span aria-hidden="true" class="grid h-9 w-9 place-items-center rounded-xl bg-emerald-300 font-bold text-emerald-950">E</span>
+      <span class="hidden sm:inline">Expense Tracker</span>
+    </a>
+    <p class="order-2 ml-auto hidden px-3 text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300 md:mb-3 md:ml-0 md:mt-10 md:block">Workspace</p>
+    <nav aria-label="Dashboard sections" class="order-3 flex w-full gap-1 overflow-x-auto md:block md:space-y-1">
+      <a href="#overview" class="flex min-h-10 shrink-0 items-center gap-1.5 rounded-lg bg-emerald-800 px-2.5 py-2 text-[11px] font-semibold text-white focus:outline-none focus:ring-2 focus:ring-emerald-300 md:gap-3 md:px-3 md:py-2.5 md:text-sm">
+        <svg aria-hidden="true" class="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="m3 10 9-7 9 7v9a2 2 0 0 1-2 2h-4v-7H9v7H5a2 2 0 0 1-2-2v-9Z"/></svg>Dashboard
+      </a>
+      <a href="#transactions" class="flex min-h-10 shrink-0 items-center gap-1.5 rounded-lg px-2.5 py-2 text-[11px] text-emerald-100/80 transition hover:bg-emerald-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-300 md:gap-3 md:px-3 md:py-2.5 md:text-sm">
+        <svg aria-hidden="true" class="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16M8 4v4m8 2v4m-8 2v4"/></svg>Transactions
+      </a>
+      <a href="#addExpense" class="flex min-h-10 shrink-0 items-center gap-1.5 rounded-lg px-2.5 py-2 text-[11px] text-emerald-100/80 transition hover:bg-emerald-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-300 md:gap-3 md:px-3 md:py-2.5 md:text-sm">
+        <svg aria-hidden="true" class="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m-7-7h14"/></svg>Add expense
+      </a>
+    </nav>
+    <div class="order-4 mt-auto hidden rounded-xl border border-emerald-800 bg-emerald-900/60 p-4 md:block">
+      <p class="text-sm font-semibold">Keep it clear</p>
+      <p class="mt-1 text-xs leading-5 text-emerald-100/70">Add expenses as they happen to keep your totals up to date.</p>
+      <a href="#addExpense" class="mt-3 inline-flex text-xs font-semibold text-emerald-300 underline-offset-4 hover:underline">Add an expense <span aria-hidden="true" class="ml-1">→</span></a>
+    </div>
+    <div class="order-2 ml-auto flex shrink-0 items-center gap-2 md:order-5 md:ml-0 md:mt-5 md:w-full md:flex-col md:items-stretch md:border-t md:border-emerald-800 md:pt-4">
+      <div class="hidden md:block"><p class="text-xs text-emerald-200/70">Signed in as</p><p id="userName" class="truncate text-sm font-semibold text-white">User</p></div>
+      <div class="flex items-center gap-2 md:mt-2 md:w-full">
+        <div id="themeToggleHost" class="flex shrink-0 items-center"></div>
+        <button id="logoutBtn" type="button" class="rounded-lg border border-emerald-800 bg-emerald-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-emerald-950 md:flex-1">Log out</button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="min-h-screen md:pl-64">
+    <main id="overview" class="mx-auto max-w-[1500px] px-4 py-7 sm:px-6 sm:py-9 lg:px-8">
+      <div class="mb-7 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div><p class="text-sm font-semibold text-emerald-800">Your money, in focus</p><h1 class="mt-1 text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1><p class="mt-2 text-sm text-gray-600">Here’s what’s happening with your spending.</p></div>
+        <a href="#addExpense" class="inline-flex items-center justify-center gap-2 self-start rounded-lg bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-900 focus:outline-none focus:ring-2 focus:ring-emerald-700 focus:ring-offset-2 sm:self-auto"><svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M12 5v14m-7-7h14"/></svg>Add expense</a>
+      </div>
+
+      <section aria-label="Income and spending summary" class="mb-6 grid gap-4 sm:grid-cols-2 2xl:grid-cols-4">
+        <article class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6"><div class="flex items-center justify-between"><div><p class="text-sm font-medium text-gray-600">Total spending</p><p id="totalSpending" class="mt-3 text-3xl font-bold tracking-tight text-gray-900" aria-live="polite">$0.00</p></div><span aria-hidden="true" class="grid h-11 w-11 place-items-center rounded-xl bg-emerald-50 text-emerald-800"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm10 9h2"/></svg></span></div><p class="mt-4 text-xs text-gray-500">Across your recorded expenses</p></article>
+        <article class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6"><div class="flex items-center justify-between"><div><p class="text-sm font-medium text-gray-600">This month</p><p id="monthlySpending" class="mt-3 text-3xl font-bold tracking-tight text-gray-900" aria-live="polite">$0.00</p></div><span aria-hidden="true" class="grid h-11 w-11 place-items-center rounded-xl bg-emerald-50 text-emerald-800"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path stroke-linecap="round" d="M16 3v4M8 3v4M3 10h18"/></svg></span></div><p class="mt-4 text-xs text-gray-500">Recorded since the start of the month</p></article>
+        <article class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:col-span-2 sm:p-6 xl:col-span-1"><div class="flex items-center justify-between"><div><p class="text-sm font-medium text-gray-600">This week</p><p id="weeklySpending" class="mt-3 text-3xl font-bold tracking-tight text-gray-900" aria-live="polite">$0.00</p></div><span aria-hidden="true" class="grid h-11 w-11 place-items-center rounded-xl bg-emerald-50 text-emerald-800"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path stroke-linecap="round" d="M16 3v4M8 3v4M3 10h18M8 14h2m4 0h2"/></svg></span></div><p class="mt-4 text-xs text-gray-500">Recorded since the start of the week</p></article>
+        <article class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6"><div class="flex items-center justify-between"><div><p class="text-sm font-medium text-gray-600">Monthly salary</p><p id="monthlyIncome" class="mt-3 text-3xl font-bold tracking-tight text-emerald-800" aria-live="polite">$0.00</p></div><span aria-hidden="true" class="grid h-11 w-11 place-items-center rounded-xl bg-emerald-50 text-emerald-800"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2v20m5-15H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span></div><p class="mt-4 text-xs text-gray-500">Salary and income recorded this month</p></article>
+      </section>
+
+      <section class="grid items-start gap-6 xl:grid-cols-[minmax(0,1.35fr)_minmax(22rem,0.9fr)]">
+        <article class="min-w-0 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
+          <div class="flex flex-wrap items-start justify-between gap-3"><div><h2 id="spendingChartTitle" class="text-base font-bold text-gray-900">Spending overview</h2><p class="mt-1 text-sm text-gray-500">Monthly totals from your recorded expenses</p></div><span class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-900">Last 6 months</span></div>
+          <div id="spendingChart" class="mt-6" role="img" aria-labelledby="spendingChartTitle" aria-describedby="spendingChartDescription"><div class="flex h-44 items-center justify-center text-sm text-gray-500">Loading your spending overview…</div></div>
+          <p id="spendingChartDescription" class="sr-only">Monthly spending totals for the past six months.</p>
+        </article>
+
+        <article id="transactions" class="min-w-0 rounded-xl border border-gray-200 bg-white shadow-sm">
+          <div class="flex items-center justify-between gap-3 border-b border-gray-200 px-5 py-5 sm:px-6"><div><h2 class="text-base font-bold text-gray-900">Recent transactions</h2><p class="mt-1 text-sm text-gray-500">Your latest recorded expenses</p></div><a href="#transactionTable" class="shrink-0 text-sm font-semibold text-emerald-800 underline-offset-4 hover:underline">View all</a></div>
+          <div class="overflow-x-auto">
+            <table id="transactionTable" class="w-full min-w-[36rem] border-collapse text-left">
+              <thead><tr class="bg-gray-50 text-xs font-semibold uppercase tracking-wide text-gray-500"><th scope="col" class="px-4 py-3 sm:px-5">Expense</th><th scope="col" class="px-3 py-3">Category</th><th scope="col" class="px-3 py-3">Date</th><th scope="col" class="px-4 py-3 text-right sm:px-5">Amount</th><th scope="col" class="px-3 py-3 text-right">Action</th></tr></thead>
+              <tbody id="expenseList" class="divide-y divide-gray-200 text-sm" aria-live="polite"><tr><td colspan="5" class="px-4 py-10 text-center text-gray-500 sm:px-5">Loading expenses…</td></tr></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section aria-labelledby="quickActionsTitle" class="mt-6 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
+        <div class="mb-4"><h2 id="quickActionsTitle" class="text-base font-bold text-gray-900">Quick actions</h2><p class="mt-1 text-sm text-gray-500">Go straight to what you need.</p></div>
+        <div class="grid gap-3 sm:grid-cols-2 2xl:grid-cols-3">
+          <a href="#addExpense" class="flex min-h-16 items-center gap-3 rounded-lg bg-emerald-800 px-4 py-3 text-sm font-semibold text-white transition hover:bg-emerald-900 focus:outline-none focus:ring-2 focus:ring-emerald-700 focus:ring-offset-2"><span class="grid h-9 w-9 place-items-center rounded-lg bg-white/15"><svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M12 5v14m-7-7h14"/></svg></span><span>Add an expense<span class="mt-0.5 block text-xs font-normal text-emerald-100">Record a new transaction</span></span></a>
+          <a href="#transactions" class="flex min-h-16 items-center gap-3 rounded-lg border border-gray-200 px-4 py-3 text-sm font-semibold text-gray-800 transition hover:border-emerald-300 hover:bg-emerald-50 focus:outline-none focus:ring-2 focus:ring-emerald-700 focus:ring-offset-2"><span class="grid h-9 w-9 place-items-center rounded-lg bg-emerald-50 text-emerald-800"><svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg></span><span>View transactions<span class="mt-0.5 block text-xs font-normal text-gray-500">Review your recorded activity</span></span></a>
+          <button id="monthlySalaryShortcut" type="button" class="flex min-h-16 items-center gap-3 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-left text-sm font-semibold text-emerald-950 transition hover:border-emerald-300 hover:bg-emerald-100 focus:outline-none focus:ring-2 focus:ring-emerald-700 focus:ring-offset-2"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-white text-emerald-800"><svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2v20m5-15H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><span>Record monthly salary<span class="mt-0.5 block text-xs font-normal text-emerald-800">Add income for this month</span></span></button>
+        </div>
+      </section>
+
+      <section id="addExpense" class="mt-6 scroll-mt-24 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
+        <div class="mb-5"><p class="text-sm font-semibold text-emerald-800">Quick entry</p><h2 class="mt-1 text-xl font-bold tracking-tight text-gray-900">Record a transaction</h2><p class="mt-1 text-sm text-gray-500">Record an expense or this month’s salary.</p></div>
+        <form id="expenseForm" class="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
+          <div><label class="mb-1.5 block text-sm font-medium text-gray-700" for="title">What was it for?</label><input type="text" id="title" name="title" required maxlength="120" placeholder="e.g. Grocery shopping" class="w-full rounded-lg border border-gray-300 bg-white px-3.5 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 focus:border-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"></div>
+          <div><label class="mb-1.5 block text-sm font-medium text-gray-700" for="amount">Amount (USD)</label><div class="relative"><span aria-hidden="true" class="absolute inset-y-0 left-3.5 flex items-center text-sm text-gray-500">$</span><input type="number" id="amount" name="amount" min="0.01" step="0.01" required placeholder="0.00" class="w-full rounded-lg border border-gray-300 bg-white py-2.5 pl-8 pr-3.5 text-sm text-gray-900 placeholder:text-gray-400 focus:border-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"></div></div>
+          <div><label class="mb-1.5 block text-sm font-medium text-gray-700" for="category">Category</label><select id="category" name="category" class="w-full rounded-lg border border-gray-300 bg-white px-3.5 py-2.5 text-sm text-gray-900 focus:border-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"><option value="1">Food &amp; Dining</option><option value="2">Transportation</option><option value="3">Housing &amp; Utilities</option><option value="4">Entertainment</option><option value="5">Shopping</option><option value="6">Salary &amp; Income</option><option value="7">Others</option></select></div>
+          <div><label class="mb-1.5 block text-sm font-medium text-gray-700" for="expenseDate">Date</label><input type="date" id="expenseDate" name="expenseDate" required class="w-full rounded-lg border border-gray-300 bg-white px-3.5 py-2.5 text-sm text-gray-900 focus:border-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"></div>
+          <div class="sm:col-span-2 xl:col-span-5"><label class="mb-1.5 block text-sm font-medium text-gray-700" for="description">Note <span class="font-normal text-gray-500">(optional)</span></label><textarea id="description" name="description" rows="2" maxlength="500" placeholder="Add a little context" class="w-full resize-y rounded-lg border border-gray-300 bg-white px-3.5 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 focus:border-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-700/20"></textarea></div>
+          <div class="sm:col-span-2 xl:col-span-5"><button type="submit" class="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-emerald-800 px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-900 focus:outline-none focus:ring-2 focus:ring-emerald-700 focus:ring-offset-2 sm:w-auto sm:min-w-44"><svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M12 5v14m-7-7h14"/></svg><span>Save transaction</span></button></div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

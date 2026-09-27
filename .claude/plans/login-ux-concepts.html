@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Expense Tracker — Login UX Concepts</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-slate-100 text-slate-900 antialiased">
+  <main class="mx-auto max-w-7xl px-5 py-10 sm:px-8">
+    <header class="mb-8 max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Expense Tracker · Design review</p>
+      <h1 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Three directions for the login screen</h1>
+      <p class="mt-3 text-slate-600">The current email-and-password flow stays familiar. These concepts improve its visual hierarchy, trust, and mobile fit without implying features the app does not have.</p>
+    </header>
+
+    <section aria-label="Login screen concepts" class="grid gap-6 xl:grid-cols-3">
+      <article class="overflow-hidden rounded-2xl border border-emerald-200 bg-white shadow-sm">
+        <div class="border-b border-emerald-100 bg-emerald-50 px-5 py-4">
+          <div class="flex items-center justify-between"><h2 class="font-bold">1. The Ledger</h2><span class="rounded-full bg-emerald-700 px-2.5 py-1 text-xs font-semibold text-white">Recommended</span></div>
+          <p class="mt-1 text-sm text-slate-600">Calm, dependable, unmistakably about personal finance.</p>
+        </div>
+        <div class="grid min-h-[390px] sm:grid-cols-[0.85fr_1.15fr]">
+          <div class="hidden flex-col justify-between bg-emerald-950 p-6 text-white sm:flex">
+            <div><div class="flex items-center gap-2 font-semibold"><span class="grid h-8 w-8 place-items-center rounded-lg bg-emerald-400 text-emerald-950">E</span> Everledger</div><p class="mt-14 text-2xl font-semibold leading-tight">Make sense of where it goes.</p><p class="mt-3 text-sm leading-6 text-emerald-100">A clear, private place to keep track of everyday spending.</p></div>
+            <p class="text-xs text-emerald-200">Simple records. More control.</p>
+          </div>
+          <div class="flex items-center justify-center p-6 sm:p-7">
+            <div class="w-full max-w-xs">
+              <p class="text-sm font-medium text-emerald-700 sm:hidden">Everledger</p><h3 class="mt-2 text-2xl font-bold">Welcome back</h3><p class="mt-1 text-sm text-slate-500">Sign in to continue to your expenses.</p>
+              <label class="mt-6 block text-sm font-medium" for="a-email">Email</label><div id="a-email" class="mt-1 rounded-lg border border-slate-300 px-3 py-2.5 text-sm text-slate-400">you@example.com</div>
+              <label class="mt-4 block text-sm font-medium" for="a-password">Password</label><div id="a-password" class="mt-1 rounded-lg border border-slate-300 px-3 py-2.5 text-sm text-slate-400">•••••••• <span class="float-right">Show</span></div>
+              <button class="mt-5 w-full rounded-lg bg-emerald-700 py-3 text-sm font-semibold text-white">Sign in</button><p class="mt-5 text-center text-sm text-slate-600">New here? <span class="font-semibold text-emerald-800">Create an account</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-slate-100 px-5 py-4 text-sm text-slate-600"><strong class="text-slate-900">Why it fits:</strong> a restrained finance palette and clear account actions. On phones, the brand panel becomes a compact heading.</div>
+      </article>
+
+      <article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div class="border-b border-slate-100 px-5 py-4"><h2 class="font-bold">2. The Open Book</h2><p class="mt-1 text-sm text-slate-600">Warm, human, and a little more expressive.</p></div>
+        <div class="min-h-[390px] bg-[#f7f3ea] p-6 sm:p-8">
+          <div class="mx-auto max-w-sm rounded-xl border border-[#e6dece] bg-white p-6 shadow-sm sm:p-8">
+            <div class="flex items-center gap-2 text-sm font-bold"><span class="text-xl text-amber-700">✳</span> Pocket Ledger</div>
+            <div class="mt-8 border-l-2 border-amber-500 pl-4"><p class="text-xs font-semibold uppercase tracking-widest text-amber-800">Your money, made clearer</p><h3 class="mt-2 text-2xl font-semibold leading-tight">Pick up where you left off.</h3></div>
+            <label class="mt-6 block text-sm font-medium" for="b-email">Email address</label><div id="b-email" class="mt-1 rounded border border-stone-300 bg-stone-50 px-3 py-2.5 text-sm text-stone-400">you@example.com</div>
+            <label class="mt-4 block text-sm font-medium" for="b-password">Password</label><div id="b-password" class="mt-1 rounded border border-stone-300 bg-stone-50 px-3 py-2.5 text-sm text-stone-400">••••••••</div>
+            <button class="mt-5 w-full rounded bg-stone-900 py-3 text-sm font-semibold text-white">Continue</button><p class="mt-5 text-center text-sm text-stone-600">Need an account? <span class="font-semibold text-amber-900">Sign up</span></p>
+          </div>
+        </div>
+        <div class="border-t border-slate-100 px-5 py-4 text-sm text-slate-600"><strong class="text-slate-900">Why it fits:</strong> paper-like surfaces make record keeping feel approachable. Keep the warm accent subtle so form states remain clear.</div>
+      </article>
+
+      <article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div class="border-b border-slate-100 px-5 py-4"><h2 class="font-bold">3. The Quiet Sign-in</h2><p class="mt-1 text-sm text-slate-600">Fast, focused, and easiest to maintain.</p></div>
+        <div class="flex min-h-[390px] items-center justify-center bg-white p-6 sm:p-8">
+          <div class="w-full max-w-xs">
+            <div class="grid h-11 w-11 place-items-center rounded-xl bg-blue-700 text-lg font-bold text-white">E</div><h3 class="mt-7 text-2xl font-bold tracking-tight">Sign in</h3><p class="mt-1 text-sm text-slate-500">Access your expense tracker.</p>
+            <label class="mt-7 block text-sm font-medium" for="c-email">Email</label><div id="c-email" class="mt-1 rounded-md border border-slate-300 px-3 py-2.5 text-sm text-slate-400">you@example.com</div>
+            <label class="mt-4 block text-sm font-medium" for="c-password">Password</label><div id="c-password" class="mt-1 rounded-md border border-slate-300 px-3 py-2.5 text-sm text-slate-400">••••••••</div>
+            <div class="mt-2 text-right text-xs font-medium text-blue-700">Forgot password?</div><button class="mt-5 w-full rounded-md bg-blue-700 py-3 text-sm font-semibold text-white">Sign in</button><p class="mt-5 text-center text-sm text-slate-600">New user? <span class="font-semibold text-blue-700">Create account</span></p>
+          </div>
+        </div>
+        <div class="border-t border-slate-100 px-5 py-4 text-sm text-slate-600"><strong class="text-slate-900">Trade-off:</strong> familiar and compact, though less distinctive. Only show “Forgot password?” once recovery is implemented.</div>
+      </article>
+    </section>
+
+    <section class="mt-8 grid gap-6 rounded-2xl border border-slate-200 bg-white p-6 sm:grid-cols-2 sm:p-8">
+      <div><h2 class="text-lg font-bold">Shared UX improvements</h2><ul class="mt-3 list-inside list-disc space-y-2 text-sm leading-6 text-slate-600"><li>Remove the inactive Google sign-in button until OAuth works.</li><li>Keep labels visible, errors near the form, and focus rings obvious.</li><li>Show the theme toggle on login and registration, matching the rest of the app.</li><li>On mobile, use a single column with comfortable tap targets and no decorative panel.</li></ul></div>
+      <div><h2 class="text-lg font-bold">Recommendation</h2><p class="mt-3 text-sm leading-6 text-slate-600">Choose <strong class="text-slate-900">The Ledger</strong>. It gives the product a recognizable finance identity without adding new product behavior. Keep the current one-step email/password flow and wire the form to the existing login handler.</p><p class="mt-3 text-sm leading-6 text-slate-600">The sample brand names are placeholders. The dashboard’s existing blue/gray styling can transition to a restrained emerald/ink palette over time; no chart or budget features are assumed.</p></div>
+    </section>
+  </main>
+</body>
+</html>

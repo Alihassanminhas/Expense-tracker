@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Keep track of your spending with Expense Tracker.">
+  <meta name="theme-color" content="#064e3b">
+  <title>Expense Tracker | A clearer view of your money</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/theme.css">
+  <script src="js/theme.js"></script>
+</head>
+<body class="min-h-screen bg-gray-50 text-gray-900">
+  <header class="border-b border-gray-200 bg-white">
+    <nav aria-label="Main navigation" class="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
+      <a href="index.html" class="inline-flex items-center gap-3 rounded-md text-base font-semibold tracking-tight text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-700">
+        <span aria-hidden="true" class="grid h-9 w-9 place-items-center rounded-xl bg-emerald-800 font-bold text-white">E</span>
+        Expense Tracker
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="login.html" class="rounded-lg px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-emerald-700">Log in</a>
+        <a href="register.html" class="rounded-lg bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-900 focus:outline-none focus:ring-2 focus:ring-emerald-700 focus:ring-offset-2">Create account</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="mx-auto grid min-h-[calc(100vh-4rem)] max-w-7xl items-center gap-12 px-5 py-14 sm:px-8 md:grid-cols-2 lg:gap-20">
+    <section class="max-w-xl">
+      <p class="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-emerald-900"><span aria-hidden="true" class="h-2 w-2 rounded-full bg-emerald-600"></span> A clearer view of your money</p>
+      <h1 class="mt-6 text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">Make sense of where it goes.</h1>
+      <p class="mt-6 max-w-lg text-lg leading-8 text-gray-600">Keep everyday spending organized in one calm, private place. Add expenses and see your totals at a glance.</p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a href="register.html" class="inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-800 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-emerald-900 focus:outline-none focus:ring-2 focus:ring-emerald-700 focus:ring-offset-2">Get started <span aria-hidden="true">→</span></a>
+        <a href="login.html" class="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-5 py-3 text-sm font-semibold text-gray-800 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-emerald-700 focus:ring-offset-2">I already have an account</a>
+      </div>
+      <p class="mt-5 text-sm text-gray-500">Simple records. More control.</p>
+    </section>
+
+    <section aria-label="Expense Tracker overview" class="relative mx-auto w-full max-w-lg">
+      <div aria-hidden="true" class="absolute -left-8 -top-8 h-32 w-32 rounded-full bg-emerald-100"></div>
+      <div class="relative rounded-2xl border border-gray-200 bg-white p-5 shadow-xl shadow-emerald-950/5 sm:p-7">
+        <div class="flex items-start justify-between gap-4">
+          <div><p class="text-sm font-medium text-gray-500">Your overview</p><h2 class="mt-1 text-xl font-bold tracking-tight text-gray-900">Everything in one place</h2></div>
+          <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-emerald-50 text-emerald-800" aria-hidden="true"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4 19V5m0 14h16M8 15v-4m4 4V7m4 8v-6m4 10V9"/></svg></span>
+        </div>
+        <div class="mt-6 grid grid-cols-2 gap-3">
+          <div class="rounded-xl bg-gray-50 p-4"><p class="text-xs font-medium text-gray-500">Spending totals</p><p class="mt-2 text-sm font-semibold text-gray-900">Track at a glance</p></div>
+          <div class="rounded-xl bg-emerald-50 p-4"><p class="text-xs font-medium text-emerald-800">Recent activity</p><p class="mt-2 text-sm font-semibold text-emerald-950">Keep records tidy</p></div>
+        </div>
+        <div class="mt-5 flex items-center gap-3 rounded-xl border border-gray-200 px-4 py-3">
+          <span class="grid h-9 w-9 place-items-center rounded-full bg-emerald-100 text-emerald-900" aria-hidden="true"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m-7-7h14"/></svg></span>
+          <div><p class="text-sm font-semibold text-gray-900">Add an expense</p><p class="text-xs text-gray-500">Record it when it happens</p></div>
+          <span aria-hidden="true" class="ml-auto text-gray-400">→</span>
+        </div>
+        <p class="mt-5 flex items-center gap-2 text-xs text-gray-500"><svg aria-hidden="true" class="h-4 w-4 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3 5 6v5c0 4.5 3 8.5 7 10 4-1.5 7-5.5 7-10V6l-7-3Z"/></svg> Your spending details stay private to your account.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
